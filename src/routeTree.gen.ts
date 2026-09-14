@@ -10,33 +10,120 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LangRouteImport } from './routes/$lang'
+import { Route as LangIndexRouteImport } from './routes/$lang.index'
+import { Route as LangAboutRouteImport } from './routes/$lang.about'
+import { Route as LangContactRouteImport } from './routes/$lang.contact'
+import { Route as LangCategoriesCategoryRouteImport } from './routes/$lang.categories.$category'
+import { Route as LangProductsIndexRouteImport } from './routes/$lang.products.index'
+import { Route as LangProductsSlugRouteImport } from './routes/$lang.products.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangRoute = LangRouteImport.update({
+  id: '/$lang',
+  path: '/$lang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangAboutRoute = LangAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangContactRoute = LangContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangCategoriesCategoryRoute = LangCategoriesCategoryRouteImport.update({
+  id: '/categories/$category',
+  path: '/categories/$category',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangProductsIndexRoute = LangProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangProductsSlugRoute = LangProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => LangRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$lang': typeof LangRouteWithChildren
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/categories/$category': typeof LangCategoriesCategoryRoute
+  '/$lang/products/$slug': typeof LangProductsSlugRoute
+  '/$lang/products/': typeof LangProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang': typeof LangIndexRoute
+  '/$lang/categories/$category': typeof LangCategoriesCategoryRoute
+  '/$lang/products/$slug': typeof LangProductsSlugRoute
+  '/$lang/products': typeof LangProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$lang': typeof LangRouteWithChildren
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/categories/$category': typeof LangCategoriesCategoryRoute
+  '/$lang/products/$slug': typeof LangProductsSlugRoute
+  '/$lang/products/': typeof LangProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/$lang'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang/'
+    | '/$lang/categories/$category'
+    | '/$lang/products/$slug'
+    | '/$lang/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang'
+    | '/$lang/categories/$category'
+    | '/$lang/products/$slug'
+    | '/$lang/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/$lang'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang/'
+    | '/$lang/categories/$category'
+    | '/$lang/products/$slug'
+    | '/$lang/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LangRoute: typeof LangRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +135,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang': {
+      id: '/$lang'
+      path: '/$lang'
+      fullPath: '/$lang'
+      preLoaderRoute: typeof LangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/about': {
+      id: '/$lang/about'
+      path: '/about'
+      fullPath: '/$lang/about'
+      preLoaderRoute: typeof LangAboutRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/contact': {
+      id: '/$lang/contact'
+      path: '/contact'
+      fullPath: '/$lang/contact'
+      preLoaderRoute: typeof LangContactRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/categories/$category': {
+      id: '/$lang/categories/$category'
+      path: '/categories/$category'
+      fullPath: '/$lang/categories/$category'
+      preLoaderRoute: typeof LangCategoriesCategoryRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/products/': {
+      id: '/$lang/products/'
+      path: '/products'
+      fullPath: '/$lang/products/'
+      preLoaderRoute: typeof LangProductsIndexRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/products/$slug': {
+      id: '/$lang/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/$lang/products/$slug'
+      preLoaderRoute: typeof LangProductsSlugRouteImport
+      parentRoute: typeof LangRoute
+    }
   }
 }
 
+interface LangRouteChildren {
+  LangAboutRoute: typeof LangAboutRoute
+  LangContactRoute: typeof LangContactRoute
+  LangIndexRoute: typeof LangIndexRoute
+  LangCategoriesCategoryRoute: typeof LangCategoriesCategoryRoute
+  LangProductsSlugRoute: typeof LangProductsSlugRoute
+  LangProductsIndexRoute: typeof LangProductsIndexRoute
+}
+
+const LangRouteChildren: LangRouteChildren = {
+  LangAboutRoute: LangAboutRoute,
+  LangContactRoute: LangContactRoute,
+  LangIndexRoute: LangIndexRoute,
+  LangCategoriesCategoryRoute: LangCategoriesCategoryRoute,
+  LangProductsSlugRoute: LangProductsSlugRoute,
+  LangProductsIndexRoute: LangProductsIndexRoute,
+}
+
+const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LangRoute: LangRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
