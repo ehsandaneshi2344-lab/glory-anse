@@ -112,7 +112,7 @@ function ProductPage() {
             <Reveal delay={200} className="mt-10 border-t pt-8">
               <h2 className="kicker">{d.product.keywords}</h2>
               <p className="mt-5 text-sm leading-loose text-muted-foreground">
-                {product.keywords[lang].join("، ".trim() === "" ? ", " : lang === "en" ? ", " : "، ")}
+                {product.keywords[lang].join(lang === "en" ? ", " : "، ")}
               </p>
             </Reveal>
 
