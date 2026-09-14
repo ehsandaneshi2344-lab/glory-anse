@@ -35,7 +35,8 @@ function ContactPage() {
       if (!String(form.get(field) ?? "").trim()) next[field] = d.contact.required;
     }
     const email = String(form.get("email") ?? "");
-    if (!next.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = d.contact.invalidEmail;
+    if (!next["email"] && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      next["email"] = d.contact.invalidEmail;
     setErrors(next);
     if (Object.keys(next).length === 0) {
       setSent(true);

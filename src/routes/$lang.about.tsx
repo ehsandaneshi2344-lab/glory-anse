@@ -77,7 +77,7 @@ function AboutPage() {
 
       <section className="mx-auto max-w-[1440px] px-6 pb-24 lg:px-12">
         <div className="grid gap-4 sm:grid-cols-3">
-          {[products[5], products[3], products[7]].map((p, i) => (
+          {[products[5]!, products[3]!, products[7]!].map((p, i) => (
             <Reveal key={p.slug} delay={i * 100} className="overflow-hidden bg-secondary">
               <img
                 src={p.image.medium}

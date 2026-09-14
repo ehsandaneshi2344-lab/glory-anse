@@ -23,8 +23,9 @@ function HomePage() {
   const { lang: raw } = Route.useParams();
   const lang = (isLang(raw) ? raw : DEFAULT_LANG) as Lang;
   const d = t[lang];
-  const hero = products[2];
-  const featured = [products[0], products[6], products[7]];
+  const hero = products[2]!;
+  const featured = [products[0]!, products[6]!, products[7]!];
+  const philosophy = products[0]!;
 
   return (
     <>
@@ -102,14 +103,14 @@ function HomePage() {
           <Reveal>
             <div className="overflow-hidden">
               <img
-                src={products[0].image.medium}
-                srcSet={`${products[0].image.small} 640w, ${products[0].image.medium} 1080w`}
+                src={philosophy.image.medium}
+                srcSet={`${philosophy.image.small} 640w, ${philosophy.image.medium} 1080w`}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 width={1080}
                 height={1446}
                 loading="lazy"
                 decoding="async"
-                alt={products[0].name[lang]}
+                alt={philosophy.name[lang]}
                 className="h-full max-h-[70vh] w-full object-cover"
               />
             </div>
