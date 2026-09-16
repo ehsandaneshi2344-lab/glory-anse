@@ -18,16 +18,18 @@ export function ProductCard({
   className?: string;
   priority?: boolean;
 }) {
-  const category = categories.find((c) => c.id === product.category)!;
+  const category = categories.find((c) => c.id === product.category);
+  if (!category) return null;
 
   return (
-    <Reveal as="article" delay={delay} className={cn("group", className)}>
+    <Reveal as="article" delay={delay} className={cn("group min-w-0", className)}>
       <Link
         to="/$lang/products/$slug"
         params={{ lang, slug: product.slug }}
-        className="block focus-visible:outline-offset-8"
+        className="block rounded-[1.2rem] focus-visible:outline-offset-4"
       >
-        <div className="overflow-hidden bg-secondary">
+        <div className="relative aspect-[3/4] overflow-hidden rounded-[1.2rem] border border-border/70 bg-secondary shadow-[var(--shadow-luxury)] transition-all duration-700 group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-lift)]">
+          <span className="pointer-events-none absolute inset-3 z-10 rounded-[0.75rem] border border-champagne/25" />
           <img
             src={product.image.medium}
             srcSet={`${product.image.small} 640w, ${product.image.medium} 1080w, ${product.image.large} 1600w`}
@@ -37,10 +39,10 @@ export function ProductCard({
             loading={priority ? "eager" : "lazy"}
             decoding="async"
             alt={product.name[lang]}
-            className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.04]"
+            className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.035]"
           />
         </div>
-        <div className="pt-5">
+        <div className="px-1 pt-5">
           <p className="kicker">{category.name[lang]}</p>
           <h3 className="mt-2 text-xl leading-snug text-foreground sm:text-2xl">
             {product.name[lang]}

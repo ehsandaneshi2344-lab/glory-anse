@@ -9,8 +9,9 @@ export function SiteFooter({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-32 border-t bg-secondary/50">
-      <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:px-12">
+    <footer className="mt-32 px-4 pb-4 sm:px-6">
+      <div className="mx-auto max-w-[1440px] overflow-hidden rounded-[1.5rem] border border-border/70 bg-secondary/60 shadow-[var(--shadow-luxury)]">
+      <div className="grid gap-12 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:px-12">
         <div className="sm:col-span-2 lg:col-span-2">
           <img
             src={logo.url}
@@ -71,6 +72,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
         <div className="mx-auto max-w-[1440px] px-6 py-6 text-xs text-muted-foreground lg:px-12">
           © {year} {d.brand}. {d.footer.rights}
         </div>
+      </div>
       </div>
     </footer>
   );

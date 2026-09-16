@@ -60,7 +60,7 @@ function ContactPage() {
           rows={5}
           aria-invalid={errors[name] ? true : undefined}
           aria-describedby={errors[name] ? `${name}-error` : undefined}
-          className="mt-3 w-full border-b border-border bg-transparent py-3 text-base outline-none transition-colors focus:border-foreground"
+          className="mt-3 w-full rounded-lg border border-border bg-background px-4 py-3 text-base outline-none transition-all focus:border-champagne focus:ring-2 focus:ring-champagne/20"
         />
       ) : (
         <input
@@ -69,7 +69,7 @@ function ContactPage() {
           type={type}
           aria-invalid={errors[name] ? true : undefined}
           aria-describedby={errors[name] ? `${name}-error` : undefined}
-          className="mt-3 w-full border-b border-border bg-transparent py-3 text-base outline-none transition-colors focus:border-foreground"
+          className="mt-3 w-full rounded-lg border border-border bg-background px-4 py-3 text-base outline-none transition-all focus:border-champagne focus:ring-2 focus:ring-champagne/20"
         />
       )}
       {errors[name] && (
@@ -86,8 +86,8 @@ function ContactPage() {
     <section className="mx-auto max-w-[1440px] px-6 pt-10 pb-24 lg:px-12">
       <Breadcrumbs lang={lang} items={[{ label: d.contact.title }]} />
 
-      <div className="mt-12 grid gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-6">
+       <div className="luxury-frame mt-12 grid gap-0 lg:grid-cols-12">
+         <div className="relative z-10 p-8 sm:p-12 lg:col-span-7 lg:p-16">
           <Reveal>
             <h1 className="text-5xl leading-tight sm:text-6xl">{d.contact.title}</h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
@@ -110,7 +110,7 @@ function ContactPage() {
                 {field("message", d.contact.message, "textarea")}
                 <button
                   type="submit"
-                  className="border border-foreground px-8 py-3 text-sm tracking-wide transition-colors duration-500 hover:bg-foreground hover:text-background"
+                   className="luxury-action"
                 >
                   {d.contact.send}
                 </button>
@@ -119,8 +119,8 @@ function ContactPage() {
           </Reveal>
         </div>
 
-        <Reveal delay={150} className="lg:col-span-5 lg:col-start-8">
-          <div className="overflow-hidden bg-secondary">
+         <Reveal delay={150} className="lg:col-span-5">
+           <div className="m-3 h-[calc(100%-1.5rem)] overflow-hidden rounded-[0.9rem] bg-secondary">
             <img
               src={hero.image.medium}
               srcSet={`${hero.image.small} 640w, ${hero.image.medium} 1080w`}
@@ -130,7 +130,7 @@ function ContactPage() {
               loading="lazy"
               decoding="async"
               alt={hero.name[lang]}
-              className="w-full object-cover"
+               className="h-full min-h-[520px] w-full object-cover"
             />
           </div>
         </Reveal>
