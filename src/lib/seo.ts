@@ -1,5 +1,7 @@
 import { LANGS, htmlLang, type Lang } from "./i18n";
 
+export const SITE_URL = "https://glory-anse.lovable.app";
+
 /** Builds meta + hreflang alternates for a page. `path` is the part after /{lang}. */
 export function pageHead({
   lang,
@@ -16,12 +18,15 @@ export function pageHead({
   image?: string;
   type?: string;
 }) {
+  const url = `${SITE_URL}/${lang}${path}`;
+
   const meta: Array<Record<string, string>> = [
     { title },
     { name: "description", content: description },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:type", content: type },
+    { property: "og:url", content: url },
     { property: "og:locale", content: htmlLang[lang].replace("-", "_") },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
@@ -29,18 +34,19 @@ export function pageHead({
   ];
 
   if (image) {
-    meta.push({ property: "og:image", content: image });
-    meta.push({ name: "twitter:image", content: image });
+    const absolute = image.startsWith("http") ? image : `${SITE_URL}${image}`;
+    meta.push({ property: "og:image", content: absolute });
+    meta.push({ name: "twitter:image", content: absolute });
   }
 
   const links = [
     ...LANGS.map((l) => ({
       rel: "alternate",
       hrefLang: htmlLang[l],
-      href: `/${l}${path}`,
+      href: `${SITE_URL}/${l}${path}`,
     })),
-    { rel: "alternate", hrefLang: "x-default", href: `/fa${path}` },
-    { rel: "canonical", href: `/${lang}${path}` },
+    { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}/fa${path}` },
+    { rel: "canonical", href: url },
   ];
 
   return { meta, links };
