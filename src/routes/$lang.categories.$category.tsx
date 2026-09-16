@@ -56,7 +56,7 @@ function CategoryPage() {
         </p>
       </Reveal>
 
-      <div className="mt-16 grid gap-x-10 gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {list.map((p, i) => (
           <ProductCard key={p.slug} product={p} lang={lang} delay={(i % 3) * 100} priority={i < 3} />
         ))}

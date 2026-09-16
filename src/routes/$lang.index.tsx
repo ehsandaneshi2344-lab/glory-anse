@@ -30,9 +30,9 @@ function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="mx-auto max-w-[1440px] px-6 pt-10 pb-24 lg:px-12 lg:pt-20">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-5">
+      <section className="mx-auto max-w-[1440px] px-4 pt-5 pb-20 sm:px-6 lg:px-12 lg:pt-10">
+        <div className="luxury-frame grid min-h-[640px] lg:grid-cols-12">
+          <Reveal className="relative z-10 flex flex-col justify-center px-8 py-16 sm:px-12 lg:col-span-7 lg:px-20">
             <p className="kicker">{d.home.heroKicker}</p>
             <h1 className="mt-6 text-[2.6rem] leading-[1.08] sm:text-6xl lg:text-[4.25rem]">
               {d.home.heroTitle}
@@ -43,14 +43,14 @@ function HomePage() {
             <Link
               to="/$lang/products"
               params={{ lang }}
-              className="mt-10 inline-block text-sm tracking-wide text-foreground"
+              className="luxury-action mt-10 w-fit"
             >
-              <span className="rule-link">{d.home.heroCta}</span>
+              <span>{d.home.heroCta}</span>
             </Link>
           </Reveal>
 
-          <Reveal delay={120} className="lg:col-span-7">
-            <div className="overflow-hidden bg-secondary">
+          <Reveal delay={120} className="relative min-h-[420px] lg:col-span-5">
+            <div className="h-full overflow-hidden bg-secondary">
               <img
                 src={hero.image.large}
                 srcSet={`${hero.image.small} 640w, ${hero.image.medium} 1080w, ${hero.image.large} 1600w`}
@@ -60,7 +60,7 @@ function HomePage() {
                 fetchPriority="high"
                 decoding="async"
                 alt={hero.name[lang]}
-                className="h-[58vh] w-full object-cover lg:h-[76vh]"
+                className="h-full min-h-[420px] w-full object-cover transition-transform duration-[1600ms] hover:scale-[1.025] lg:min-h-[640px]"
               />
             </div>
           </Reveal>
@@ -68,7 +68,7 @@ function HomePage() {
       </section>
 
       {/* Collection statement */}
-      <section className="border-y bg-card">
+      <section className="border-y border-border/70 bg-card">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-24 lg:grid-cols-12 lg:px-12">
           <Reveal className="lg:col-span-4">
             <p className="kicker">{d.home.collectionKicker}</p>
@@ -85,9 +85,9 @@ function HomePage() {
         <Reveal>
           <p className="kicker">{d.home.featuredKicker}</p>
         </Reveal>
-        <div className="mt-10 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid auto-rows-auto gap-8 sm:grid-cols-2 lg:grid-cols-12">
           {featured.map((p, i) => (
-            <ProductCard key={p.slug} product={p} lang={lang} delay={i * 100} />
+            <ProductCard key={p.slug} product={p} lang={lang} delay={i * 100} className={i === 0 ? "lg:col-span-5" : i === 1 ? "lg:col-span-4 lg:pt-20" : "lg:col-span-3 lg:pt-40"} />
           ))}
         </div>
         <Reveal className="mt-16">
@@ -98,10 +98,10 @@ function HomePage() {
       </section>
 
       {/* Philosophy */}
-      <section className="bg-champagne/40">
-        <div className="mx-auto grid max-w-[1440px] items-center gap-12 px-6 py-24 lg:grid-cols-2 lg:px-12">
+      <section className="px-4 sm:px-6 lg:px-12">
+        <div className="soft-panel mx-auto grid max-w-[1344px] items-center gap-0 overflow-hidden lg:grid-cols-2">
           <Reveal>
-            <div className="overflow-hidden">
+             <div className="overflow-hidden lg:m-4 lg:rounded-[0.9rem]">
               <img
                 src={philosophy.image.medium}
                 srcSet={`${philosophy.image.small} 640w, ${philosophy.image.medium} 1080w`}
@@ -115,7 +115,7 @@ function HomePage() {
               />
             </div>
           </Reveal>
-          <Reveal delay={120}>
+          <Reveal delay={120} className="p-8 sm:p-12 lg:p-16">
             <p className="kicker">{d.home.philosophyKicker}</p>
             <h2 className="mt-5 text-3xl leading-tight sm:text-4xl">{d.home.philosophyTitle}</h2>
             <p className="mt-7 text-base leading-relaxed text-muted-foreground">
@@ -133,15 +133,15 @@ function HomePage() {
         <Reveal>
           <h2 className="text-3xl sm:text-4xl">{d.home.categoriesTitle}</h2>
         </Reveal>
-        <div className="mt-12 grid gap-px border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((c, i) => {
             const count = productsByCategory(c.id).length;
             return (
-              <Reveal key={c.id} delay={i * 80} className="bg-background">
+              <Reveal key={c.id} delay={i * 80} className="soft-panel bg-background">
                 <Link
                   to="/$lang/categories/$category"
                   params={{ lang, category: c.slug }}
-                  className="flex h-full flex-col justify-between gap-8 p-8 transition-colors duration-500 hover:bg-secondary"
+                  className="flex h-full flex-col justify-between gap-8 rounded-[1.1rem] p-8 transition-all duration-500 hover:-translate-y-1 hover:bg-secondary hover:shadow-[var(--shadow-lift)]"
                 >
                   <div>
                     <h3 className="text-2xl">{c.name[lang]}</h3>

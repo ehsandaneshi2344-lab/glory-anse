@@ -76,10 +76,10 @@ export function SiteHeader({ lang }: { lang: Lang }) {
     <header
       className={cn(
         "sticky top-0 z-50 transition-all duration-500",
-        scrolled ? "bg-background/92 border-b backdrop-blur-md" : "bg-transparent",
+        scrolled ? "border-b border-border/70 bg-background/88 shadow-[var(--shadow-luxury)] backdrop-blur-xl" : "bg-transparent",
       )}
     >
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 lg:px-12">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)_auto] items-center gap-5 px-6 py-4 md:flex md:justify-between lg:px-12">
         <Link
           to="/$lang"
           params={{ lang }}
@@ -96,7 +96,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
           />
         </Link>
 
-        <nav aria-label={d.menu} className="hidden items-center gap-10 text-sm md:flex">
+        <nav aria-label={d.menu} className="hidden items-center gap-2 rounded-full border border-border/70 bg-card/80 p-1.5 text-sm shadow-[var(--shadow-luxury)] md:flex [&_a]:rounded-full [&_a]:px-4 [&_a]:py-2">
           {links}
         </nav>
 
@@ -104,7 +104,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
           <LanguageSwitcher lang={lang} className="hidden sm:flex" />
           <button
             type="button"
-            className="flex flex-col items-end gap-[5px] p-2 md:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full border border-border bg-card shadow-[var(--shadow-luxury)] md:hidden"
             aria-expanded={open}
             aria-label={open ? d.close : d.menu}
             onClick={() => setOpen((v) => !v)}

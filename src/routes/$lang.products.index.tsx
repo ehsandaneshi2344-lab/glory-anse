@@ -39,11 +39,11 @@ function ProductsPage() {
         <p className="mt-6 text-lg text-muted-foreground">{d.products.lead}</p>
       </Reveal>
 
-      <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-y py-4 text-sm">
+      <div className="mt-12 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-5 rounded-[1.1rem] border border-border/70 bg-card px-5 py-4 text-sm shadow-[var(--shadow-luxury)] sm:flex sm:flex-wrap">
         <span className="sr-only" id="filter-label">
           {d.products.filterLabel}
         </span>
-        <div role="group" aria-labelledby="filter-label" className="flex flex-wrap gap-x-6 gap-y-3">
+        <div role="group" aria-labelledby="filter-label" className="flex min-w-0 flex-wrap gap-x-6 gap-y-3">
           <button
             type="button"
             onClick={() => setFilter("all")}
@@ -79,19 +79,19 @@ function ProductsPage() {
         </span>
       </div>
 
-      <div className="mt-14 grid gap-x-10 gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {list.map((p, i) => (
           <ProductCard key={p.slug} product={p} lang={lang} delay={(i % 3) * 100} priority={i < 3} />
         ))}
       </div>
 
-      <div className="mt-24 grid gap-px border bg-border sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-24 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {categories.map((c) => (
           <Link
             key={c.id}
             to="/$lang/categories/$category"
             params={{ lang, category: c.slug }}
-            className="bg-background p-8 transition-colors duration-500 hover:bg-secondary"
+            className="soft-panel bg-background p-8 transition-all duration-500 hover:-translate-y-1 hover:bg-secondary hover:shadow-[var(--shadow-lift)]"
           >
             <h2 className="text-xl">{c.name[lang]}</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.intro[lang]}</p>

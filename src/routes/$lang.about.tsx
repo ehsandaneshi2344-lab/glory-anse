@@ -29,7 +29,7 @@ function AboutPage() {
     <>
       <section className="mx-auto max-w-[1440px] px-6 pt-10 pb-16 lg:px-12">
         <Breadcrumbs lang={lang} items={[{ label: d.nav.about }]} />
-        <div className="mt-12 grid gap-12 lg:grid-cols-12">
+        <div className="luxury-frame mt-12 grid gap-12 p-8 sm:p-12 lg:grid-cols-12 lg:p-16">
           <Reveal className="lg:col-span-7">
             <p className="kicker">{d.about.kicker}</p>
             <h1 className="mt-6 text-5xl leading-tight sm:text-6xl">{d.about.title}</h1>
@@ -49,7 +49,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y bg-card">
+      <section className="border-y border-border/70 bg-card">
         <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-3">
             {[d.about.p1, d.about.p2, d.about.p3].map((p, i) => (
@@ -65,9 +65,9 @@ function AboutPage() {
         <Reveal>
           <h2 className="text-3xl sm:text-4xl">{d.about.pillarsTitle}</h2>
         </Reveal>
-        <div className="mt-12 grid gap-px border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {d.about.pillars.map((p, i) => (
-            <Reveal key={p.title} delay={i * 80} className="bg-background p-8">
+            <Reveal key={p.title} delay={i * 80} className="soft-panel bg-background p-8">
               <h3 className="text-xl">{p.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
             </Reveal>
@@ -76,9 +76,9 @@ function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-[1440px] px-6 pb-24 lg:px-12">
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-12">
           {[products[5]!, products[3]!, products[7]!].map((p, i) => (
-            <Reveal key={p.slug} delay={i * 100} className="overflow-hidden bg-secondary">
+            <Reveal key={p.slug} delay={i * 100} className={`overflow-hidden rounded-[1.2rem] border border-border/70 bg-secondary shadow-[var(--shadow-luxury)] ${i === 0 ? "sm:col-span-5" : i === 1 ? "sm:col-span-3 sm:mt-16" : "sm:col-span-4 sm:mt-8"}`}>
               <img
                 src={p.image.medium}
                 srcSet={`${p.image.small} 640w, ${p.image.medium} 1080w`}

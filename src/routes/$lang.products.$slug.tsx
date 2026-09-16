@@ -40,7 +40,8 @@ function ProductPage() {
   const d = t[lang];
   const product = getProduct(slug);
   if (!product) return null;
-  const category = categories.find((c) => c.id === product.category)!;
+  const category = categories.find((c) => c.id === product.category);
+  if (!category) return null;
   const related = products.filter((p) => p.category === product.category && p.slug !== product.slug);
 
   return (
@@ -59,9 +60,9 @@ function ProductPage() {
           ]}
         />
 
-        <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="luxury-frame mt-10 grid gap-0 lg:grid-cols-12">
           <Reveal className="lg:col-span-6">
-            <div className="overflow-hidden bg-secondary">
+            <div className="m-3 overflow-hidden rounded-[0.9rem] bg-secondary">
               <img
                 src={product.image.large}
                 srcSet={`${product.image.small} 640w, ${product.image.medium} 1080w, ${product.image.large} 1600w`}
@@ -76,7 +77,7 @@ function ProductPage() {
             </div>
           </Reveal>
 
-          <div className="lg:col-span-5 lg:col-start-8">
+          <div className="relative z-10 p-8 sm:p-12 lg:col-span-6 lg:p-16">
             <Reveal>
               <Link
                 to="/$lang/categories/$category"
@@ -95,7 +96,7 @@ function ProductPage() {
               <h2 className="kicker">{d.product.ingredients}</h2>
               <ul className="mt-5 flex flex-wrap gap-x-3 gap-y-2 text-sm">
                 {product.ingredients[lang].map((ing) => (
-                  <li key={ing} className="border border-border px-3 py-1.5 text-muted-foreground">
+                  <li key={ing} className="rounded-full border border-border bg-secondary/40 px-4 py-2 text-muted-foreground">
                     {ing}
                   </li>
                 ))}
