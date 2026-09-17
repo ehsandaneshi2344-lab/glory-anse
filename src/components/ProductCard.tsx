@@ -28,7 +28,7 @@ export function ProductCard({
         params={{ lang, slug: product.slug }}
         className="flex h-full flex-col rounded-[1.2rem] focus-visible:outline-offset-4"
       >
-        <div className="relative aspect-[3/4] overflow-hidden rounded-[1.2rem] border border-border/70 bg-secondary shadow-[var(--shadow-luxury)] transition-all duration-700 group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-lift)]">
+        <div className="glass-shine relative aspect-[3/4] overflow-hidden rounded-[1.2rem] border border-border/70 bg-secondary shadow-[var(--shadow-luxury)] transition-all duration-700 group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-lift)]">
           <span className="pointer-events-none absolute inset-3 z-10 rounded-[0.75rem] border border-champagne/25" />
           <img
             src={product.image.medium}

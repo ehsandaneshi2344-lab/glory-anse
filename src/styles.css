@@ -181,6 +181,36 @@
     box-shadow: var(--shadow-lift);
     background: color-mix(in oklab, var(--primary) 88%, var(--champagne));
   }
+
+  /* Glass-light sheen across images on hover. */
+  .glass-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      color-mix(in oklab, #fff 46%, transparent) 48%,
+      color-mix(in oklab, #fff 18%, transparent) 52%,
+      transparent 60%
+    );
+    opacity: 0;
+    transform: translateX(-110%) skewX(-14deg);
+    transition: transform 0.95s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.35s ease;
+  }
+
+  .glass-shine:hover::before,
+  .group:hover .glass-shine::before {
+    opacity: 1;
+    transform: translateX(110%) skewX(-14deg);
+  }
 }
 
 [dir="rtl"] .kicker {
