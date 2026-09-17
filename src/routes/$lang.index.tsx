@@ -81,13 +81,13 @@ function HomePage() {
       </section>
 
       {/* Featured products */}
-      <section className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12">
+      <section className="mx-auto max-w-[1600px] px-6 py-24 lg:px-12">
         <Reveal>
           <p className="kicker">{d.home.featuredKicker}</p>
         </Reveal>
-        <div className="mt-10 grid auto-rows-auto gap-8 sm:grid-cols-2 lg:grid-cols-12">
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((p, i) => (
-            <ProductCard key={p.slug} product={p} lang={lang} delay={i * 100} className={i === 0 ? "lg:col-span-5" : i === 1 ? "lg:col-span-4 lg:pt-20" : "lg:col-span-3 lg:pt-40"} />
+            <ProductCard key={p.slug} product={p} lang={lang} delay={i * 100} className="h-full" />
           ))}
         </div>
         <Reveal className="mt-16">
