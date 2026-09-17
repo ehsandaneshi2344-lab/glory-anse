@@ -62,7 +62,7 @@ function ProductPage() {
 
         <div className="luxury-frame mt-10 grid gap-0 lg:grid-cols-12">
           <Reveal className="lg:col-span-6">
-            <div className="m-3 overflow-hidden rounded-[0.9rem] bg-secondary">
+            <div className="glass-shine m-3 overflow-hidden rounded-[0.9rem] bg-secondary">
               <img
                 src={product.image.large}
                 srcSet={`${product.image.small} 640w, ${product.image.medium} 1080w, ${product.image.large} 1600w`}

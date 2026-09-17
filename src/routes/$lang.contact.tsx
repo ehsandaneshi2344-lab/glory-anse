@@ -120,7 +120,7 @@ function ContactPage() {
         </div>
 
          <Reveal delay={150} className="lg:col-span-5">
-           <div className="m-3 h-[calc(100%-1.5rem)] overflow-hidden rounded-[0.9rem] bg-secondary">
+           <div className="glass-shine m-3 h-[calc(100%-1.5rem)] overflow-hidden rounded-[0.9rem] bg-secondary">
             <img
               src={hero.image.medium}
               srcSet={`${hero.image.small} 640w, ${hero.image.medium} 1080w`}

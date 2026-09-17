@@ -50,7 +50,7 @@ function HomePage() {
           </Reveal>
 
           <Reveal delay={120} className="relative min-h-[420px] lg:col-span-5">
-            <div className="h-full overflow-hidden bg-secondary">
+            <div className="glass-shine h-full overflow-hidden bg-secondary">
               <img
                 src={hero.image.large}
                 srcSet={`${hero.image.small} 640w, ${hero.image.medium} 1080w, ${hero.image.large} 1600w`}
@@ -101,7 +101,7 @@ function HomePage() {
       <section className="px-4 sm:px-6 lg:px-12">
         <div className="soft-panel mx-auto grid max-w-[1344px] items-center gap-0 overflow-hidden lg:grid-cols-2">
           <Reveal>
-             <div className="overflow-hidden lg:m-4 lg:rounded-[0.9rem]">
+             <div className="glass-shine relative overflow-hidden lg:m-4 lg:rounded-[0.9rem]">
               <img
                 src={philosophy.image.medium}
                 srcSet={`${philosophy.image.small} 640w, ${philosophy.image.medium} 1080w`}

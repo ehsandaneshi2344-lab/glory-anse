@@ -78,7 +78,7 @@ function AboutPage() {
       <section className="mx-auto max-w-[1440px] px-6 pb-24 lg:px-12">
         <div className="grid gap-5 sm:grid-cols-12">
           {[products[5]!, products[3]!, products[7]!].map((p, i) => (
-            <Reveal key={p.slug} delay={i * 100} className={`overflow-hidden rounded-[1.2rem] border border-border/70 bg-secondary shadow-[var(--shadow-luxury)] ${i === 0 ? "sm:col-span-5" : i === 1 ? "sm:col-span-3 sm:mt-16" : "sm:col-span-4 sm:mt-8"}`}>
+            <Reveal key={p.slug} delay={i * 100} className={`glass-shine relative overflow-hidden rounded-[1.2rem] border border-border/70 bg-secondary shadow-[var(--shadow-luxury)] ${i === 0 ? "sm:col-span-5" : i === 1 ? "sm:col-span-3 sm:mt-16" : "sm:col-span-4 sm:mt-8"}`}>
               <img
                 src={p.image.medium}
                 srcSet={`${p.image.small} 640w, ${p.image.medium} 1080w`}
