@@ -47,7 +47,7 @@ export type Product = {
   keywords: LocalizedList;
 };
 
-const img = (a: { url: string }, b: { url: string }, c: { url: string }): ProductImage => ({
+const img = (a: string, b: string, c: string): ProductImage => ({
   small: a,
   medium: b,
   large: c,
