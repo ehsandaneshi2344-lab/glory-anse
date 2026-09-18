@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Reveal } from "@/components/Reveal";
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/logo.png";
 import { DEFAULT_LANG, isLang, t, type Lang } from "@/lib/i18n";
 import { products } from "@/lib/products";
 import { pageHead } from "@/lib/seo";
@@ -39,7 +39,7 @@ function AboutPage() {
           </Reveal>
           <Reveal delay={120} className="flex items-center justify-center lg:col-span-4 lg:col-start-9">
             <img
-              src={logo.url}
+              src={logo}
               alt={`${d.brand} — ${d.tagline}`}
               width={420}
               height={420}

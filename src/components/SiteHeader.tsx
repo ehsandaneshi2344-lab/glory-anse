@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/logo.png";
 import { t, type Lang } from "@/lib/i18n";
 import { categories } from "@/lib/products";
 import { cn } from "@/lib/utils";
@@ -88,7 +88,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
           onClick={() => setOpen(false)}
         >
           <img
-            src={logo.url}
+            src={logo}
             alt={`${d.brand} — ${d.tagline}`}
             width={160}
             height={160}
