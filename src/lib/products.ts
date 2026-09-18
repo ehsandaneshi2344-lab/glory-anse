@@ -1,29 +1,29 @@
 import type { Lang } from "./i18n";
 
-import p1a from "@/assets/p1-640.webp.asset.json";
-import p1b from "@/assets/p1-1080.webp.asset.json";
-import p1c from "@/assets/p1-1600.webp.asset.json";
-import p2a from "@/assets/p2-640.webp.asset.json";
-import p2b from "@/assets/p2-1080.webp.asset.json";
-import p2c from "@/assets/p2-1600.webp.asset.json";
-import p3a from "@/assets/p3-640.webp.asset.json";
-import p3b from "@/assets/p3-1080.webp.asset.json";
-import p3c from "@/assets/p3-1600.webp.asset.json";
-import p4a from "@/assets/p4-640.webp.asset.json";
-import p4b from "@/assets/p4-1080.webp.asset.json";
-import p4c from "@/assets/p4-1600.webp.asset.json";
-import p5a from "@/assets/p5-640.webp.asset.json";
-import p5b from "@/assets/p5-1080.webp.asset.json";
-import p5c from "@/assets/p5-1600.webp.asset.json";
-import p6a from "@/assets/p6-640.webp.asset.json";
-import p6b from "@/assets/p6-1080.webp.asset.json";
-import p6c from "@/assets/p6-1600.webp.asset.json";
-import p7a from "@/assets/p7-640.webp.asset.json";
-import p7b from "@/assets/p7-1080.webp.asset.json";
-import p7c from "@/assets/p7-1600.webp.asset.json";
-import p8a from "@/assets/p8-640.webp.asset.json";
-import p8b from "@/assets/p8-1080.webp.asset.json";
-import p8c from "@/assets/p8-1600.webp.asset.json";
+import p1a from "@/assets/p1-640.webp";
+import p1b from "@/assets/p1-1080.webp";
+import p1c from "@/assets/p1-1600.webp";
+import p2a from "@/assets/p2-640.webp";
+import p2b from "@/assets/p2-1080.webp";
+import p2c from "@/assets/p2-1600.webp";
+import p3a from "@/assets/p3-640.webp";
+import p3b from "@/assets/p3-1080.webp";
+import p3c from "@/assets/p3-1600.webp";
+import p4a from "@/assets/p4-640.webp";
+import p4b from "@/assets/p4-1080.webp";
+import p4c from "@/assets/p4-1600.webp";
+import p5a from "@/assets/p5-640.webp";
+import p5b from "@/assets/p5-1080.webp";
+import p5c from "@/assets/p5-1600.webp";
+import p6a from "@/assets/p6-640.webp";
+import p6b from "@/assets/p6-1080.webp";
+import p6c from "@/assets/p6-1600.webp";
+import p7a from "@/assets/p7-640.webp";
+import p7b from "@/assets/p7-1080.webp";
+import p7c from "@/assets/p7-1600.webp";
+import p8a from "@/assets/p8-640.webp";
+import p8b from "@/assets/p8-1080.webp";
+import p8c from "@/assets/p8-1600.webp";
 
 export type CategoryId = "cleansing" | "hydration" | "sun" | "hair";
 
@@ -48,9 +48,9 @@ export type Product = {
 };
 
 const img = (a: { url: string }, b: { url: string }, c: { url: string }): ProductImage => ({
-  small: a.url,
-  medium: b.url,
-  large: c.url,
+  small: a,
+  medium: b,
+  large: c,
 });
 
 export const categories: {

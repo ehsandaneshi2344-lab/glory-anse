@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/logo.png";
 import { t, type Lang } from "@/lib/i18n";
 import { categories } from "@/lib/products";
 
@@ -14,7 +14,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
       <div className="grid gap-12 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:px-12">
         <div className="sm:col-span-2 lg:col-span-2">
           <img
-            src={logo.url}
+            src={logo}
             alt={`${d.brand} — ${d.tagline}`}
             width={200}
             height={200}
